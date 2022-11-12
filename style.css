@@ -1,3 +1,24 @@
 body {
-    background-color: rgb(236, 150, 236);
+    background-color: rgb(97, 201, 214);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.emblem {
+    display: flex;
+    justify-content: center;
+}
+
+.emblem img {
+    height: 150px;
+    width: 150px; 
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-evenly;
+
 }
