@@ -1,17 +1,15 @@
 /* Create a API requests for the page
     and hook it to the form
 */
-async function loadLitterTrackData (reg, res, next) {
-    try {
-        const url = 'https://data.princegeorgescountymd.gov/resource/9tsa-iner.json';
-        const data = await fetch(url);
-        const json = await data.json();
-        reg.loadLitterTrackData = json;
-        next();
-    } catch (err) {
-        console.log('Data request failed', err);
-        res.json({message: 'Data request failed', error: err});
-    }
+async function loadLitterTrackData () {
+    const url = 'https://data.princegeorgescountymd.gov/resource/9tsa-iner.json';
+    const data = await fetch(url);
+    const json = await data.json();
+    return json;
+    // try {
+    // } catch (err) {
+    //     console.log('Data request failed', err);
+    // };
 }
 
 function initMap() {
@@ -24,6 +22,9 @@ function initMap() {
     return map;
   }
 async function mainEvent() {
+    console.log('fired main event')
+    const data = await loadLitterTrackData();
+    console.log('Data load Successfuly', data);
 
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
@@ -36,3 +37,5 @@ async function mainEvent() {
 
     const results = await fetch('?${new URLSearchParams(formProps)}');
 }
+
+document.onload(() => mainEvent());
