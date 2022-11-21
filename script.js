@@ -8,6 +8,16 @@ async function loadLitterTrackData () {
     return json;
 }
 
+function filterTypeOfLitter(array, inputValue) {
+    indexArray = [];
+    for(let i=0 ; i< array.length; i++) {
+        typeArray = array[i]['type_litter'].split(',');
+        typeArray.inclue(inputValue)
+        indexArray.append(i);
+    }
+    return indexArray;
+}
+
 function initMap() {
     console.log('initMap');
     const map = L.map('map').setView([38.9897, -76.9378], 13);
@@ -25,14 +35,15 @@ async function mainEvent() {
     form.addEventListener('submit', async (SubmitEvent) => {
         SubmitEvent.preventDefault();
         console.log('form submission');
-    })
+    });
 
     console.log('fired main event')
-    const data = await loadLitterTrackData();
-    console.log('Data load Successfuly', data);
+    const result = await loadLitterTrackData();
+    console.log('Data load Successfuly', result);
 
-    console.table(data.data);
-    console.log(data.data[0]);
+    console.log(Array.isArray(result))
+
+    console.log(result[8]['type_litter'].split(",").includes('car_parts'));
    
 }
 
