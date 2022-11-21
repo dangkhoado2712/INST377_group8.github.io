@@ -28,11 +28,11 @@ async function mainEvent() {
     })
 
     console.log('fired main event')
-    const data = await loadLitterTrackData();
-    console.log('Data load Successfuly', data);
+    const result = await loadLitterTrackData();
+    console.log('Data load Successfuly', result);
 
-    console.table(data.data);
-    console.log(data.data[0]);
+    console.table(result.data);
+    console.log(result.data[0]);
    
 }
 
