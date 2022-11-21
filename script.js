@@ -6,10 +6,6 @@ async function loadLitterTrackData () {
     const data = await fetch(url);
     const json = await data.json();
     return json;
-    // try {
-    // } catch (err) {
-    //     console.log('Data request failed', err);
-    // };
 }
 
 function initMap() {
@@ -21,21 +17,23 @@ function initMap() {
     }).addTo(map);
     return map;
   }
-async function mainEvent() {
-    console.log('fired main event')
-    const data = await loadLitterTrackData();
-    console.log('Data load Successfuly', data);
 
+
+async function mainEvent() {
+    
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
         SubmitEvent.preventDefault();
         console.log('form submission');
     })
 
-    const formData = new FormData(SubmitEvent.target);
-    const formProps = Object.fromEntries(formData);
+    console.log('fired main event')
+    const data = await loadLitterTrackData();
+    console.log('Data load Successfuly', data);
 
-    const results = await fetch('?${new URLSearchParams(formProps)}');
+    console.table(data.data);
+    console.log(data.data[0]);
+   
 }
 
-document.onload(() => mainEvent());
+document.addEventListener('DOMContentLoaded', async () => mainEvent())
