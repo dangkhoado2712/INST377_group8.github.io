@@ -31,6 +31,8 @@ function initMap() {
 
 async function mainEvent() {
     
+    initMap();
+    
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
         SubmitEvent.preventDefault();
