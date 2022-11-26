@@ -12,8 +12,10 @@ function filterTypeOfLitter(array, inputValue) {
     indexArray = [];
     for(let i=0 ; i< array.length; i++) {
         typeArray = array[i]['type_litter'].split(',');
-        typeArray.inclue(inputValue)
-        indexArray.append(i);
+        
+        if (typeArray.includes(inputValue)) {
+            indexArray.push(i);
+        }
     }
     return indexArray;
 }
@@ -28,11 +30,22 @@ function initMap() {
     return map;
   }
 
+function markerPlace(array, map) {
+    array.forEach((item, index) => {
+        const {coordinates} = item.geocoded_column;
+        L.marker([coordinates[1], coordinates[0]]).addTo(map);
+        if (index === 0) {
+          map.setView([coordinates[1], coordinates[0]]);
+        }
+    });
+}
+
+
 
 async function mainEvent() {
     
-    initMap();
-    
+    const pageMap = initMap();
+
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
         SubmitEvent.preventDefault();
@@ -46,6 +59,17 @@ async function mainEvent() {
     console.log(Array.isArray(result))
 
     console.log(result[8]['type_litter'].split(",").includes('car_parts'));
+
+    let filteredList = [];
+
+    form.addEventListener('input', (event) => {
+        console.log(event.target.value);
+        const filteredList = filterTypeOfLitter(result, event.target.value);
+        console.log(filteredList);
+        markerPlace(filteredList, pageMap);
+    });
+
+    markerPlace(filteredList, pageMap);
    
 }
 
