@@ -30,8 +30,14 @@ function initMap() {
     return map;
   }
 
-function markerPlace(array, map) {
+function markerPlace(list, array, map) {
     
+    for(let i=0; i <list.length; i++) {
+        if(array.includes(list[i])) {
+            const{coordinates} = list[i]['geocoded_column'];
+            L.marker([coordinates[1], coordinates[0]]).addTo(map);
+        }
+    }
 }
 
 
