@@ -40,8 +40,6 @@ function markerPlace(list, array, map) {
     }
 }
 
-
-
 async function mainEvent() {
     
     const pageMap = initMap();
@@ -66,11 +64,8 @@ async function mainEvent() {
         console.log(event.target.value);
         const filteredList = filterTypeOfLitter(result, event.target.value);
         console.log(filteredList);
-        markerPlace(filteredList, pageMap);
+        markerPlace(result, filteredList, pageMap);
     });
-
-    markerPlace(filteredList, pageMap);
-   
 }
 
 document.addEventListener('DOMContentLoaded', async () => mainEvent())
