@@ -50,6 +50,7 @@ function initMap() {
     return map;
   }
 
+<<<<<<< Updated upstream
 
 function markerPlace(list, array, map) {
     map.eachLayer((layer) => {
@@ -68,6 +69,9 @@ function markerPlace(list, array, map) {
 async function mainEvent() {
     
     const pageMap = initMap();
+=======
+    initMap();
+>>>>>>> Stashed changes
 
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
