@@ -11,14 +11,16 @@ async function loadLitterTrackData () {
 inject the type of litter into the website 
 */
 function injectHTML(inputValue) {
-    console.log('fired injectHTML');
+    // console.log('fired injectHTML');
+    // console.log(inputValue);
     const target = document.querySelector('#Type_of_Litter');
-    target.innerHTML = '';
+    target.innerHTML = inputValue;
   
-    const typeLitter = document.createElement('p');
-    target.appendChild(inputValue);
+    // const typeLitter = document.createElement('ol');
+    // target.appendChild(inputValue);
 
 }
+
 
 /*
 Filter for the litter when user input the type of litter
@@ -87,6 +89,8 @@ async function mainEvent() {
     const result = await loadLitterTrackData();
     console.log('Data load Successfuly', result);
 
+
+
     console.log(Array.isArray(result))
 
     console.log(result[8])
@@ -98,6 +102,8 @@ async function mainEvent() {
     console.log(coordinates['longitude']);
 
 
+
+
   
 
 
@@ -105,9 +111,11 @@ async function mainEvent() {
     let filteredList = [];
 
     form.addEventListener('input', (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         filteredList = filterTypeOfLitter(result, event.target.value);
-        console.log(filteredList);
+        injectHTML(event.target.value);
+        // console.log(filteredList);
+
     });
 
     form.addEventListener('submit', (submitEvent) => { 
