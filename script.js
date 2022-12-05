@@ -29,8 +29,16 @@ function filterTypeOfLitter(array, inputValue) {
     indexArray = [];
     for(let i=0 ; i< array.length; i++) {
         typeArray = array[i]['type_litter'].split(',');
-        
-        if (typeArray.includes(inputValue)) {
+        let newArray2 =[]
+        typeArray.forEach((item) => {
+            if (item.includes('_')) {
+                let newString = item.replace('_',' ');
+                newArray2.push(newString.toLowerCase());
+            } else {
+                newArray2.push(item.toLowerCase())
+            }
+        })
+        if (newArray2.includes(inputValue.toLowerCase())) {
             indexArray.push(i);
         }
     }
@@ -50,7 +58,6 @@ function initMap() {
     return map;
   }
 
-<<<<<<< Updated upstream
 
 function markerPlace(list, array, map) {
     map.eachLayer((layer) => {
@@ -69,9 +76,6 @@ function markerPlace(list, array, map) {
 async function mainEvent() {
     
     const pageMap = initMap();
-=======
-    initMap();
->>>>>>> Stashed changes
 
     const form = document.querySelector('.main_form');
     form.addEventListener('submit', async (SubmitEvent) => {
@@ -86,11 +90,17 @@ async function mainEvent() {
     console.log(Array.isArray(result))
 
     console.log(result[8])
-    console.log(result[8]['type_litter'].split(",").includes('car_parts'));
+    console.log(result[8]['type_litter'].split(","));
+    let newArray = result[8]['type_litter'].split(",");
     const coordinates = result[8]['geocoded_column'];
     console.log(coordinates);
     console.log(coordinates['latitude']);
     console.log(coordinates['longitude']);
+
+
+  
+
+
 
     let filteredList = [];
 
