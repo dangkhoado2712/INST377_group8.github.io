@@ -58,7 +58,6 @@ function initMap() {
     return map;
   }
 
-
 function markerPlace(list, array, map) {
     map.eachLayer((layer) => {
         if (layer instanceof L.Marker) {
@@ -97,12 +96,8 @@ async function mainEvent() {
     console.log(coordinates['latitude']);
     console.log(coordinates['longitude']);
 
-
-  
-
-
-
     let filteredList = [];
+    const stringInput = '';
 
     form.addEventListener('input', (event) => {
         console.log(event.target.value);
