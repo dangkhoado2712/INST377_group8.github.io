@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PG County Litter</title> <!-- Set titile for webpage-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
      crossorigin=""/>
@@ -16,7 +16,7 @@
     crossorigin=""></script>
 </head>
 <body>
-    <div class="emblem">
+    <div class="emblem"> <!-- Image logo of PG county-->
         <img src="image/pngkey.com-naacp-logo-png-9334720.png" alt="emblem of PG">
     </div>
     <div class="header">
@@ -28,7 +28,7 @@
         <div class="container">
           <div class="left_section box">
               <h2>Form Input</h2>
-              <div class="listLitter">
+              <div class="listLitter">  <!-- List of the type of litter-->
                 <ol>
                     <li>Bags garbage</li>
                     <li>Car parts</li>
@@ -44,7 +44,7 @@
                     <li>Other</li>
                 </ol>
               </div>
-              <form class="form box main_form" action="/api">
+              <form class="form box main_form" action="/api"> <!-- Form for user input-->
                   <p>Type of Litter</p>
                   <label for=type_litter></label>
                   <input type="text" name="type_litter" id="type_litter" />
