@@ -11,14 +11,9 @@ async function loadLitterTrackData () {
 inject the type of litter into the website 
 */
 function injectHTML(inputValue) {
-    // console.log('fired injectHTML');
-    // console.log(inputValue);
+    console.log('fired injectHTML');
     const target = document.querySelector('#Type_of_Litter');
     target.innerHTML = inputValue;
-  
-    // const typeLitter = document.createElement('ol');
-    // target.appendChild(inputValue);
-
 }
 
 
@@ -60,6 +55,10 @@ function initMap() {
     return map;
   }
 
+  /*
+  Place the marker of the type litter on the map
+  The function using the column gecoded_column
+  */
 function markerPlace(list, array, map) {
     map.eachLayer((layer) => {
         if (layer instanceof L.Marker) {
@@ -88,34 +87,14 @@ async function mainEvent() {
     const result = await loadLitterTrackData();
     console.log('Data load Successfuly', result);
 
-
-
     console.log(Array.isArray(result))
 
-    console.log(result[8])
-    console.log(result[8]['type_litter'].split(","));
-    let newArray = result[8]['type_litter'].split(",");
-    const coordinates = result[8]['geocoded_column'];
-    console.log(coordinates);
-    console.log(coordinates['latitude']);
-    console.log(coordinates['longitude']);
-
-
-
-
-  
-
-
-
     let filteredList = [];
-    const stringInput = '';
 
     form.addEventListener('input', (event) => {
-        // console.log(event.target.value);
+        console.log(event.target.value);
         filteredList = filterTypeOfLitter(result, event.target.value);
         injectHTML(event.target.value);
-        // console.log(filteredList);
-
     });
 
     form.addEventListener('submit', (submitEvent) => { 
