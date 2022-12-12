@@ -1,5 +1,7 @@
-# INST377_group8.github.io
-Link for the github page: https://dangkhoado2712.github.io/INST377_group8.github.io/
+# PG County Litter Webiste
+## Link for the github page: https://dangkhoado2712.github.io/INST377_group8.github.io/
+
+
 
 Information problem:
 By browsing the PG County’s OpenData API under the environment category, we decide to use the LitterTRAK dataset as our base for the project. The dataset is a list of data that tracks the collection of trash and debris by PG County residents and community organizations. One row, of the dataset, represents litter reports either by the organization or country residents in one location, it includes information on the type of litter which indicates types of categories of objects it is, such as car parts, furniture, or regular bags of garbage, and numbers of objects(litter), area name, district code, fiscal year, file creation date, and location in longitude and latitude. 
