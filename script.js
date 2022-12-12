@@ -24,7 +24,7 @@ function injectHTML(inputValue) {
 
 /*
 Filter for the litter when user input the type of litter
-Arguments: array and imputValue
+Arguments: array and inputValue
 return: the index of the array that coresponse with the inputValue
 */
 function filterTypeOfLitter(array, inputValue) {
